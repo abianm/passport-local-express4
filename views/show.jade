@@ -1,0 +1,29 @@
+extends layout
+
+block content
+
+  .container
+    if (user)
+      ul
+        li Id    : #{user.id}
+        li Name  : #{user.username}
+        li Email : #{user.email}
+        if (user.accounts.length > 0)
+          table.table.table-striped
+            th Nº Cuenta
+            th Total(€)
+            each account in user.accounts
+              tr
+                td= account.number 
+                td= account.total
+
+  .container
+    form(role='form', action="/upload",method="post", style='max-width: 300px;',enctype="multipart/form-data")
+      .form-group
+          input.form-control(type='file', name="fileUploaded")
+          input(type='hidden', name="id", value="#{user.id}")
+      button.btn.btn-default(type='submit') Submit
+
+  
+  .container.footer
+    a(href="/") Back
