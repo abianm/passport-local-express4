@@ -1,3 +1,4 @@
+"use stricts"
 var express     = require('express');
 var passport    = require('passport');
 var Account     = require('../models/account');
@@ -12,16 +13,16 @@ var upload      = multer({ dest: 'public/uploads/',
 router.get('/', model.index);
 
 router.route('/register')
-  .get(model.register_get)
-  .post(model.register_post);
+  .get(model.registerGet)
+  .post(model.registerPost);
 
 router.route('/login')
-  .get(model.login_get)
-  .post(passport.authenticate('local'), model.login_post);  
+  .get(model.loginGet)
+  .post(passport.authenticate('local'), model.loginPost);  
 
 
 
-router.get('/logout', model.logout_get);
+router.get('/logout', model.logoutGet);
 
 router.get('/ping', model.ping);
 

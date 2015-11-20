@@ -27,7 +27,7 @@ exports.index = function (req, res) {
  *  @param {request}   req
  *  @param {response}  res
  */
-exports.register_get = function(req, res) {
+exports.registerGet = function(req, res) {
     res.render('register', {});
 };
 
@@ -38,7 +38,7 @@ exports.register_get = function(req, res) {
  *  @param {response}  res
  *  @param {function}  next
  */
-exports.register_post = function(req, res, next) {
+exports.registerPost = function(req, res, next) {
   Account.register(new Account({ username : req.body.username , email : req.body.email }),
    req.body.password, function(err, account) {
     if (err) {
@@ -61,7 +61,7 @@ exports.register_post = function(req, res, next) {
  *  @param {request}   req
  *  @param {response}  res
  */
-exports.login_get = function(req, res) {
+exports.loginGet = function(req, res) {
     res.render('login', { user : req.user });
 };
 
@@ -72,7 +72,7 @@ exports.login_get = function(req, res) {
  *  @param {response}  res
  *  @param {function}  next
  */
-exports.login_post = function(req, res, next) {
+exports.loginPost = function(req, res, next) {
     req.session.save(function (err) {
         if (err) {
             return next(err);
@@ -88,7 +88,7 @@ exports.login_post = function(req, res, next) {
  *  @param {response}  res
  *  @param {function}  next
  */
-exports.logout_get = function(req, res, next) {
+exports.logoutGet = function(req, res, next) {
     req.logout();
     req.session.save(function (err) {
         if (err) {
