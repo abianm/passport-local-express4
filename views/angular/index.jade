@@ -12,3 +12,6 @@ html(ng-app="accountsApp")
       ul
         li(ng-repeat="data in account.accounts")
           {{data.name}}
+
+    .container(ng-controller="refreshControl")
+      {{currentTime | date:'yyyy-MM-dd HH:mm:ss Z' }}

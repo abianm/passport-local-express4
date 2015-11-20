@@ -9,5 +9,12 @@
   
   }]);
 
+  app.controller('refreshControl',function($http,$scope,$interval){
+    $scope.currentTime = new Date();
+    $interval(function(){
+      $scope.currentTime = new Date();
+    },1000);
+  }); 
+
 
 })();

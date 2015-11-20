@@ -9,6 +9,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/users', function (req, res) {
+  debugger;
   res.status(200).json({names: [
     {name:'pepe'},
     {name:'juan'},
@@ -16,5 +17,10 @@ router.get('/users', function (req, res) {
     ]});
 });
 
+
+router.get('/date', function (req, res) {
+  debugger;
+  res.status(200).json(new Date());
+});
 
 module.exports = router;
