@@ -11,7 +11,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var angular = require('./routes/angular');
 
 var app = express();
 
@@ -38,11 +38,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Set curret_user to be accesible in  jade templates.
 app.use(function(req,res,next){
     res.locals.current_user = req.user;
+    res.locals.rootPath     = __dirname;
     next();
 });
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/angular', angular);
 
 // passport config
 var Account = require('./models/account');

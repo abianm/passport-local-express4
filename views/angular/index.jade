@@ -1,0 +1,14 @@
+html(ng-app="accountsApp")
+  head
+    script(src="/javascripts/angular.min.js")
+    script(src="/javascripts/accounts.js")
+  body
+    .container
+      label Name:
+      input(type="text" ng-model="yourName" placeholder="Enter a name here" ng-init="yourName = hola")
+      hr
+      h1="Hello JADE + ANGULAR" +"{{yourName}}" + "!"
+    .container(ng-controller="AccountController as account" )
+      ul
+        li(ng-repeat="data in account.accounts")
+          {{data.name}}
